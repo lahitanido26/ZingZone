@@ -1,0 +1,13 @@
+{
+  "name": "mern-responsive-real-estate-website",
+  "version": "1.0.0",
+  "description": "Hello and welcome to my real estate project that has a functionality for people to list yachts as well.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd backend && node index.js",
+    "build": "cd backend && npm install"
+  },
+  "author": "",
+  "license": "ISC"
+}
