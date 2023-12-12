@@ -13,13 +13,21 @@ const yachtController = require('./controllers/yachtController')
 const userController = require('./controllers/userController')
 const commentController = require('./controllers/commentController')
 
-// db connecting
-mongoose.set('strictQuery', false)
-mongoose.connect(process.env.MONGO_URL)
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.log('NOT CONNECTED TO NETWORK', err))
 
 // middlewares
+app.use(
+  express.json({
+    limit: '10mb',
+  })
+)
 app.use(cors())
-app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/images', express.static('public/images'))
 
